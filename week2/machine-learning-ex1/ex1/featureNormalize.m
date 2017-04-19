@@ -26,12 +26,18 @@ sigma = zeros(1, size(X, 2));
 % Hint: You might find the 'mean' and 'std' functions useful.
 %
 
-% get the value of each column
-
 for i = 1:size(X, 2)
+
+    % get the value of each column
     x_norm_col = X(:, i);
+
+    % calculate the mean of each column
     mu(i) = mean(x_norm_col);
+
+    % calculate the standard error of each column
     sigma(i) = std(x_norm_col);
+
+    % normalization
     X_norm(:, i) = (x_norm_col - mu(i)) / sigma(i);
 end
 % ============================================================
