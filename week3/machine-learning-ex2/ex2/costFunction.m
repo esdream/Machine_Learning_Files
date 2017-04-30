@@ -24,7 +24,7 @@ grad = zeros(size(theta));
 h_x = sigmoid(X * theta);
 
 % Calc the J
-J = -1 / m * (y' * log(h_x) + (ones(m, 1) - y)' *  log(1 - h_x));
+J = -1 / m * (y' * log(h_x) + (ones(m, 1) - y)' *  log(ones(m, 1) - h_x));
 
 % Calc the gradient
 grad = 1 / m * X' * (h_x - y);
