@@ -21,15 +21,16 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-numOfExample = length(idx);
+numOfExample = size(X, 1);
 distance = zeros(K, 1);
+minv = 1;
 
 for i = 1 : numOfExample
     for j = 1 : K
         vectorFromXtoMiu = X(i, :) - centroids(j, :);
         distance(j) = vectorFromXtoMiu * vectorFromXtoMiu';
     end
-    idx(i) = find(distance == min(distance));
+    [minv, idx(i)] = min(distance);
 end
 
 % =============================================================
